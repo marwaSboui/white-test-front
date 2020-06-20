@@ -22,12 +22,12 @@ const routes: Routes = [
     component: CertificationListComponent,
   },
   {
-    path: 'certification/:id',
-    component: CertificationDetailsComponent,
-  },
-  {
     path: 'certification/add',
     component: CertificationAddComponent,
+  },
+  {
+    path: 'certification/:id',
+    component: CertificationDetailsComponent,
   },
   {
     path: 'certification/update/:id',

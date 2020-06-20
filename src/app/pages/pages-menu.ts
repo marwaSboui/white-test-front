@@ -24,7 +24,7 @@ export const MENU_ITEMS_ADMIN: NbMenuItem[] = [
   {
     title: 'Supervisor',
     icon: 'home-outline',
-    link: '/pages/admin/certification',
+    link: '/pages/admin/supervisor',
   },
   {
     title: 'Exam Room',

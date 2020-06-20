@@ -1,1 +1,46 @@
-<p>certification-add works!</p>
+<nb-card>
+  <nb-card-header>
+    Add new certification
+  </nb-card-header>
+  <form [formGroup]="addCertificationForm" (ngSubmit)="onSubmit()">
+    <nb-auth-block style="margin: auto;">
+    <nb-card-body>
+        <div class="form-control-group">
+          <div class="row col-md-12">
+            <label for="input-name" class="label">Certification name:</label>
+            <input nbInput fullWidth type="text" formControlName="name" id="input-name"
+                   placeholder="Certification name"
+                   fieldSize="small" autofocus=""
+                   class="input-full-width size-large status-basic shape-rectangle"
+                   required="" aria-invalid="false">
+          </div>
+        </div>
+        <div class="form-control-group">
+          <div class="row col-md-12">
+            <label for="input-provider" class="label">Provider:</label>
+            <input nbInput fullWidth type="text" formControlName="provider" id="input-provider"
+                   placeholder="Provider"
+                   fieldSize="small" autofocus=""
+                   class="input-full-width size-large status-basic shape-rectangle"
+                   required="" aria-invalid="false">
+          </div>
+        </div>
+        <div class="form-control-group">
+          <div class="row col-md-12">
+            <label for="input-duration" class="label">Duration:</label>
+            <input nbInput fullWidth type="number" formControlName="duration" id="input-duration"
+                   placeholder="Duration"
+                   fieldSize="small" autofocus=""
+                   class="input-full-width size-large status-basic shape-rectangle"
+                   required="" aria-invalid="false">
+          </div>
+        </div>
+
+    </nb-card-body>
+    <nb-card-footer>
+      <button type="reset" style="float: right" nbButton status="danger" class="mr-2 mb-2" >Reset</button>
+      <button type="submit" style="float:right;" nbButton status="success" class="mr-2 mb-2">Submit</button>
+    </nb-card-footer>
+    </nb-auth-block>
+  </form>
+</nb-card>

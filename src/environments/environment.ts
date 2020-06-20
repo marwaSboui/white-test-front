@@ -10,5 +10,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: '',
+  appUrl: {
+    serverUrl: 'http://localhost:3000',
+    apiUrl: '/api',
+    authUrl: '/auth',
+  },
 };

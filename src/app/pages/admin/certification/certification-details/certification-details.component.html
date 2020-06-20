@@ -1,1 +1,50 @@
-<p>certification-details works!</p>
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-10">
+        Details of Certification n° <strong>{{certification?._id}}</strong>
+      </div>
+      <div class="col-2">
+        <button style="float: right" (click)="onClickUpdate(certification._id)" nbTooltip="Edit" nbTooltipStatus="warning" nbButton class="mr-2" size="small" status="warning">
+          <nb-icon icon="edit-2-outline"></nb-icon>
+        </button>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-6">
+        <div class="row">
+          <div class="col-6">
+            <p class="font-weight-bold">Name: </p>
+          </div>
+
+          <div class="col-6">
+            <p class="font-weight-bold">{{certification?.name}} </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <p class="font-weight-bold">Provider: </p>
+          </div>
+
+          <div class="col-6">
+            <p class="font-weight-bold">{{certification?.provider}} </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <p class="font-weight-bold">Duration: </p>
+          </div>
+
+          <div class="col-6">
+            <p class="font-weight-bold">{{certification?.duration}} min</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+
+  </nb-card-footer>
+</nb-card>

@@ -1,1 +1,50 @@
-<p>certification-list works!</p>
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-6">
+        Certifications
+      </div>
+      <div class="col-6">
+        <button nbTooltip="Add" (click)="onAdd()" nbTooltipStatus="primary" nbButton style="float: right" size="small" status="primary">
+          <nb-icon icon="plus-circle-outline"></nb-icon>
+        </button>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class=col-12>
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Provider</th>
+            <th>Duration</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let certification of certificationList">
+            <td>{{certification.name}}</td>
+            <td>{{certification.provider}}</td>
+            <td>{{certification.duration}}</td>
+            <td>
+
+              <button (click)="onClickDetails(certification._id)" nbTooltip="Details" nbTooltipStatus="success" nbButton class="mr-2" size="small" status="success">
+                <nb-icon icon="file-text-outline"></nb-icon>
+              </button>
+              <button (click)="onClickUpdate(certification._id)" nbTooltip="Edit" nbTooltipStatus="warning" nbButton class="mr-2" size="small" status="warning">
+                <nb-icon icon="edit-2-outline"></nb-icon>
+              </button>
+              <button (click)="onDeleteCertification(certification._id)"  nbTooltip="Delete" nbTooltipStatus="danger" nbButton class="mr-2" size="small" status="danger">
+                <nb-icon icon="trash-2-outline"></nb-icon>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

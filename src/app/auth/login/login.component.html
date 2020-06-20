@@ -1,1 +1,39 @@
-<p>login works!</p>
+<nb-layout>
+  <nb-layout-column>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <nb-card>
+        <nb-card-header>
+          Login
+        </nb-card-header>
+        <nb-card-body>
+          <nb-auth-block style="margin: auto;">
+            <div class="form-control-group">
+              <div class="row col-md-12">
+                <label for="input-email" class="label">Email:</label>
+                <input nbInput fullwidth type="email" formControlName="username" id="input-email"
+                       placeholder="Email address"
+                       fieldsize="small" autofocus=""
+                       class="input-full-width size-large status-basic shape-rectangle"
+                       required="" aria-invalid="false">
+              </div>
+            </div>
+            <div class="form-control-group">
+              <div class="row col-md-12">
+                <label for="input-password" class="label">Password:</label>
+                <input nbInput fullwidth type="password" formControlName="password" id="input-password"
+                       placeholder="Password"
+                       fieldsize="small" autofocus=""
+                       class="input-full-width size-large status-basic shape-rectangle"
+                       required="" aria-invalid="false">
+              </div>
+            </div>
+          </nb-auth-block>
+        </nb-card-body>
+        <nb-card-footer>
+          <button type="reset" style="float: right" nbButton status="danger" class="mr-2">Reset</button>
+          <button type="submit" style="float:right;" nbButton status="success" class="mr-2">Submit</button>
+        </nb-card-footer>
+      </nb-card>
+    </form>
+  </nb-layout-column>
+</nb-layout>

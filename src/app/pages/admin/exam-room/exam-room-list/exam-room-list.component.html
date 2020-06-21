@@ -1,1 +1,55 @@
-<p>exam-room-list works!</p>
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-6">
+        Exam rooms
+      </div>
+      <div class="col-6">
+        <button nbTooltip="Add" (click)="onAdd()" nbTooltipStatus="primary" nbButton style="float: right" size="small" status="primary">
+          <nb-icon icon="plus-circle-outline"></nb-icon>
+        </button>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class=col-12>
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th>Room number</th>
+            <th>Availability</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let examRoom of examRoomList">
+            <td>{{examRoom.number}}</td>
+            <td>
+              <ul *ngIf="examRoom?.availability?.length !== 0">
+                <li *ngFor="let a of examRoom.availability">
+                  <strong>from :</strong> {{a.from | date: 'medium'}} - <strong> to :</strong> {{a.to | date: 'medium'}}
+                </li>
+              </ul>
+              <span *ngIf="examRoom?.availability?.length === 0"> -- </span>
+            </td>
+            <td>
+
+              <button (click)="onClickDetails(examRoom._id)" nbTooltip="Details" nbTooltipStatus="success" nbButton class="mr-2" size="small" status="success">
+                <nb-icon icon="file-text-outline"></nb-icon>
+              </button>
+              <button (click)="onClickUpdate(examRoom._id)" nbTooltip="Edit" nbTooltipStatus="warning" nbButton class="mr-2" size="small" status="warning">
+                <nb-icon icon="edit-2-outline"></nb-icon>
+              </button>
+              <button (click)="onClickDelete(examRoom._id)"  nbTooltip="Delete" nbTooltipStatus="danger" nbButton class="mr-2" size="small" status="danger">
+                <nb-icon icon="trash-2-outline"></nb-icon>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

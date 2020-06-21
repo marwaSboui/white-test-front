@@ -1,1 +1,44 @@
-<p>supervisor-list works!</p>
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-6">
+        Supervisors
+      </div>
+      <div class="col-6">
+        <button nbTooltip="Add" (click)="onAdd()" nbTooltipStatus="primary" nbButton style="float: right" size="small" status="primary">
+          <nb-icon icon="plus-circle-outline"></nb-icon>
+        </button>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class=col-12>
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th>Fist name</th>
+            <th>Last name</th>
+            <th>Availability</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let supervisor of supervisorList">
+            <td>{{supervisor.firstName}}</td>
+            <td>{{supervisor.lastName}}</td>
+            <td>
+              <ul *ngIf="supervisor?.availability?.length !== 0">
+                <li *ngFor="let a of supervisor.availability">
+                  <strong>from :</strong> {{a.from | date: 'full'}} <strong> to :</strong> {{a.to | date: 'full'}}
+                </li>
+              </ul>
+              <span *ngIf="supervisor?.availability?.length === 0"> -- </span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

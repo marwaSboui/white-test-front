@@ -9,10 +9,19 @@ import {User} from '../models/user';
 })
 export class UserService {
   urlAuth = environment.appUrl.serverUrl + environment.appUrl.authUrl;
-  urlApi = environment.appUrl.serverUrl + environment.appUrl.apiUrl;
+  urlApi = environment.appUrl.serverUrl + environment.appUrl.apiUrl + '/user';
   constructor(private httpClient: HttpClient) { }
 
   createStudent(user: User): Observable<User> {
     return this.httpClient.post<User>(this.urlAuth + '/signup' , user);
   }
+
+  createSupervisor(user: User): Observable<User> {
+    return this.httpClient.post<User>(this.urlAuth + '/supervisor/signup' , user);
+  }
+
+  findSupervisor(): Observable<User[]> {
+    return this.httpClient.get<User[]>(this.urlApi + '/supervisor');
+  }
+
 }

@@ -37,14 +37,13 @@ const routes: Routes = [
     path: 'exam-room',
     component: ExamRoomListComponent,
   },
-
-  {
-    path: 'exam-room/:id',
-    component: ExamRoomDetailsComponent,
-  },
   {
     path: 'exam-room/add',
     component: ExamRoomAddComponent,
+  },
+  {
+    path: 'exam-room/:id',
+    component: ExamRoomDetailsComponent,
   },
   {
     path: 'exam-room/update/:id',

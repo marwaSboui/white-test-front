@@ -1,7 +1,7 @@
 import {Availability} from './availability';
 
 export interface ExamRoom {
-  _id: string;
+  _id?: string;
   number: string;
   availability: Availability[];
 }

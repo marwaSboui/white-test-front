@@ -1,1 +1,86 @@
-<p>exam-room-add works!</p>
+<nb-card>
+  <nb-card-header>
+    Add new exam room
+  </nb-card-header>
+      <nb-card-body>
+
+        <form [formGroup]="addExamRoomForm" (ngSubmit)="onSubmit()">
+        <div class="form-control-group mb-3">
+          <div class="row col-md-12">
+            <label for="input-number" class="label">Exam room number:</label>
+            <input nbInput fullWidth type="text" formControlName="number" id="input-number"
+                   placeholder="Exam room name"
+                   fieldSize="small" autofocus=""
+                   class="input-full-width size-large status-basic shape-rectangle"
+                   required="" aria-invalid="false">
+          </div>
+        </div>
+        </form>
+        <form [formGroup]="addAvailabilityForm" (ngSubmit)="addAvailability()">
+        <nb-card>
+          <nb-card-header>
+            Add availability
+          </nb-card-header>
+          <nb-card-body>
+
+            <div class="row mb-2">
+              <div class=col-12>
+                <table class="table table-hover">
+                  <thead>
+                  <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let a of availabilityList; let i = index">
+                    <td>{{a.from | date: 'medium'}}</td>
+                    <td>{{a.to | date: 'medium'}}</td>
+                    <td>
+
+                      <button (click)="onDeleteAvailability(i)"  nbTooltip="Delete" nbTooltipStatus="danger" nbButton class="mr-2" size="small" status="danger">
+                        <nb-icon icon="trash-2-outline"></nb-icon>
+                      </button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          <div class="form-control-group">
+            <div class="row col-md-12">
+              <label for="input-from" class="label">Availability from:</label>
+              <input nbInput fullWidth type="datetime-local" formControlName="from" id="input-from"
+                     placeholder="Availability from:"
+                     fieldSize="small" autofocus=""
+                     class="input-full-width size-large status-basic shape-rectangle"
+                     required="" aria-invalid="false">
+            </div>
+          </div>
+          <div class="form-control-group">
+            <div class="row col-md-12">
+              <label for="input-to" class="label">Availability to:</label>
+              <input nbInput fullWidth type="datetime-local" formControlName="to" id="input-to"
+                     placeholder="Availability to:"
+                     fieldSize="small" autofocus=""
+                     class="input-full-width size-large status-basic shape-rectangle"
+                     required="" aria-invalid="false">
+            </div>
+          </div>
+          </nb-card-body>
+          <nb-card-footer>
+            <button type="reset" style="float: right" nbButton status="danger" class="mr-2 mb-2">Reset</button>
+            <button type="submit" style="float: right" nbButton status="success"
+                    class="mr-2 mb-2">Add availability
+            </button>
+          </nb-card-footer>
+        </nb-card>
+        </form>
+      </nb-card-body>
+      <nb-card-footer>
+        <button type="reset" (click)="addExamRoomForm.reset(); addAvailabilityForm.reset(); availabilityList = [];" style="float: right" nbButton status="danger" class="mr-2 mb-2">Reset</button>
+        <button type="submit" (click)="onSubmit()" style="float:right;" nbButton status="success" class="mr-2 mb-2">Submit</button>
+      </nb-card-footer>
+</nb-card>
